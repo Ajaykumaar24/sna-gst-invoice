@@ -1,73 +1,383 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.5">
-  <style type="text/css">
-    body {background-color: #eaecf6}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 17.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 11.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff; min-height: 12.0px}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px Arial; color: #535353; -webkit-text-stroke: #535353}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial; color: #184e18; -webkit-text-stroke: #184e18}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Arial; color: #686e9b; -webkit-text-stroke: #686e9b}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Arial; color: #457b24; -webkit-text-stroke: #457b24}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px Arial; color: #457b24; -webkit-text-stroke: #457b24; min-height: 11.0px}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Arial; -webkit-text-stroke: #000000; min-height: 14.0px}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px '.SF NS'; color: #266c26; -webkit-text-stroke: #266c26; background-color: #ffffff}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px Arial; color: #434343; -webkit-text-stroke: #434343}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Arial; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px '.SF NS'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    span.s1 {font: 17.0px 'Apple Color Emoji'; font-kerning: none}
-    span.s2 {font-kerning: none}
-    span.s3 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; background-color: #ffffff}
-    span.s4 {font-kerning: none; background-color: #ffffff}
-    span.s5 {font: 13.0px 'Apple Color Emoji'; font-kerning: none; background-color: #ffffff}
-    span.s6 {font-kerning: none; background-color: #eef7e4}
-    span.s7 {font: 10.0px Helvetica; font-kerning: none; background-color: #eef7e4}
-    span.s8 {font: 14.0px '.AppleSimplifiedChineseFont'; font-kerning: none}
-    span.s9 {font: 13.0px Helvetica; font-kerning: none; background-color: #ffffff}
-    span.s10 {font: 15.0px Helvetica; font-kerning: none; background-color: #ffffff}
-    span.s11 {font: 16.0px '.Apple Color Emoji UI'; font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+<title>SNA Billing – Invoice & Quotation</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f8;min-height:100vh;}
+.hdr{background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:14px;padding:16px 20px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 18px rgba(27,94,32,.3);color:#fff;}
+.ht{font-size:17px;font-weight:900;letter-spacing:1.5px;}
+.hs{font-size:10px;opacity:.75;margin-top:3px;}
+.hd{text-align:right;font-size:11px;opacity:.85;line-height:1.7;}
+.tabs{display:flex;gap:6px;background:#fff;border-radius:12px;padding:6px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.tab{flex:1;padding:12px 8px;border:none;background:transparent;color:#666;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit;touch-action:manipulation;}
+.tab.active{background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;box-shadow:0 3px 10px rgba(27,94,32,.3);}
+.card{background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+.ctitle{font-size:13px;font-weight:700;color:#1b5e20;border-bottom:2px solid #e8f5e9;padding-bottom:8px;margin-bottom:14px;}
+.cg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.full{grid-column:1/-1;}
+.lbl{font-size:11px;font-weight:600;color:#7b83ab;display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
+.fi{padding:11px 13px;border:1px solid #d0d5e8;border-radius:8px;font-size:16px;width:100%;outline:none;color:#222;font-family:inherit;background:#fff;}
+.fi:focus{border-color:#4caf50;box-shadow:0 0 0 3px rgba(76,175,80,.1);}
+.tbl-hdr{display:grid;grid-template-columns:2fr 2.5fr .7fr 1fr 1.3fr 1.3fr 36px;gap:6px;padding:7px 10px;background:#f1f8e9;border-radius:8px;margin-bottom:8px;}
+.tbl-hdr span{font-size:10px;font-weight:700;color:#558b2f;text-transform:uppercase;letter-spacing:.4px;}
+.tbl-row{display:grid;grid-template-columns:2fr 2.5fr .7fr 1fr 1.3fr 1.3fr 36px;gap:6px;align-items:center;padding:6px 10px;border-radius:8px;border:1px solid #e8f5e9;margin-bottom:8px;}
+.tbl-row.even{background:#f9fef6;}.tbl-row.odd{background:#fff;}
+.ri{padding:8px 10px;border:1px solid #d0d5e8;border-radius:7px;font-size:14px;width:100%;outline:none;color:#222;font-family:inherit;}
+.ri:focus{border-color:#4caf50;}
+.rs{padding:8px 28px 8px 8px;border:1px solid #d0d5e8;border-radius:7px;font-size:13px;width:100%;outline:none;cursor:pointer;font-family:inherit;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 8px center;-webkit-appearance:none;appearance:none;}
+.ml{display:none;font-size:10px;font-weight:700;color:#558b2f;text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.amt-cell{font-size:12px;font-weight:700;color:#1b5e20;}
+.famount{display:flex;align-items:center;}
+.del-btn{background:#ffebee;border:none;color:#e53935;border-radius:7px;width:32px;height:32px;cursor:pointer;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;flex-shrink:0;touch-action:manipulation;}
+@media(max-width:680px){
+.tbl-hdr{display:none!important;}
+.tbl-row{display:flex!important;flex-wrap:wrap;gap:10px;padding:44px 14px 14px 14px;border:2px solid #c8e6c9;border-radius:12px;margin-bottom:14px;position:relative;background:#fafff8!important;}
+.tbl-row.even,.tbl-row.odd{background:#fafff8;}
+.fc,.fd{flex:0 0 100%;}
+.fq,.fu{flex:0 0 calc(50% - 5px);}
+.fr{flex:0 0 calc(55% - 5px);}
+.famount{flex:0 0 calc(45% - 5px);background:#e8f5e9;border-radius:8px;padding:8px;flex-direction:column;align-items:flex-start;justify-content:center;}
+.del-btn{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:8px;}
+.ml{display:block!important;}
+.ri,.rs{font-size:16px!important;padding:11px 12px!important;}
+.rs{padding-right:34px!important;}
+.amt-cell{font-size:13px;}
+.cg{grid-template-columns:1fr 1fr!important;}
+.tab{font-size:12px;padding:11px 4px;}
+}
+@media(max-width:420px){.cg{grid-template-columns:1fr!important;}}
+.sw{max-width:300px;margin-left:auto;}
+.sr{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f2f5;font-size:13px;color:#555;}
+.st{display:flex;justify-content:space-between;margin-top:8px;padding:12px 14px;background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;border-radius:8px;font-size:15px;font-weight:800;}
+.gen-btn{width:100%;padding:16px;background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 16px rgba(27,94,32,.35);touch-action:manipulation;}
+.add-btn{margin-top:6px;background:#fff;border:2px dashed #a5d6a7;color:#2e7d32;border-radius:8px;padding:12px;cursor:pointer;font-size:14px;width:100%;font-weight:600;touch-action:manipulation;}
+#qview{display:none;padding:16px 12px;}
+.qctrl{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;max-width:820px;margin-left:auto;margin-right:auto;}
+.btn-back{padding:11px 18px;background:#fff;border:1px solid #bbb;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;touch-action:manipulation;}
+.btn-pdf{padding:11px 20px;background:#1b5e20;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;touch-action:manipulation;}
+.btn-pdf:disabled{background:#999;cursor:wait;}
+.btn-prn{padding:11px 20px;background:#e65100;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;touch-action:manipulation;}
+.mob-tip{display:none;background:#fff3e0;border-left:4px solid #ff9800;border-radius:8px;padding:12px 14px;font-size:12px;color:#bf360c;max-width:820px;margin:0 auto 12px;line-height:1.7;}
+@media(max-width:680px){.mob-tip{display:block;}}
+#invoice{background:#fff;border:1.5px solid #bbb;max-width:820px;margin:0 auto;font-size:11px;font-family:Arial,sans-serif;}
+.inv-title{background:#1b5e20;color:#fff;text-align:center;padding:9px;font-size:14px;font-weight:800;letter-spacing:2px;}
+.inv-top{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #333;}
+.inv-seller{padding:12px 14px;border-right:1px solid #999;line-height:1.8;color:#333;}
+.inv-sn{font-weight:900;font-size:14px;color:#1b5e20;margin-bottom:4px;}
+.inv-meta{padding:10px 12px;}
+.imt{width:100%;border-collapse:collapse;}
+.imt td{padding:5px 8px;border:1px solid #ddd;font-size:11px;}
+.imt td:first-child{color:#666;background:#fafffe;width:48%;}
+.imt td:last-child{font-weight:700;}
+.inv-buyer{padding:10px 14px;background:#f9fff8;border-bottom:1.5px solid #333;}
+.ibl{font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.ibn{font-weight:900;font-size:13px;color:#1b5e20;}
+.itbl{width:100%;border-collapse:collapse;}
+.itbl th{padding:8px 6px;background:#e8f5e9;font-weight:700;font-size:11px;border:1px solid #ccc;}
+.itbl td{padding:7px 8px;border:1px solid #e0e0e0;vertical-align:top;}
+.ic{font-weight:700;color:#1b5e20;}
+.id2{color:#666;font-size:10px;margin-top:2px;}
+.tsec{display:grid;grid-template-columns:1fr 265px;border-top:1.5px solid #333;}
+.twords{padding:10px 14px;border-right:1px solid #bbb;}
+.twt{font-weight:700;color:#333;margin-bottom:4px;font-size:12px;}
+.twv{color:#222;font-style:italic;}
+.tline{display:flex;justify-content:space-between;align-items:center;padding:5px 10px;border-bottom:1px solid #eee;}
+.tgrand{display:flex;justify-content:space-between;padding:8px 10px;background:#e8f5e9;font-weight:800;color:#1b5e20;font-size:14px;}
+.ifoot{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid #333;}
+.idecl{padding:14px;border-right:1px solid #bbb;}
+.isign{padding:14px;text-align:right;}
+.sl{border-top:1px solid #555;padding-top:5px;color:#444;font-weight:600;display:inline-block;padding-left:30px;padding-right:30px;margin-top:48px;}
+@media(max-width:680px){
+.inv-top,.tsec,.ifoot{grid-template-columns:1fr!important;}
+.inv-seller,.twords,.idecl{border-right:none;border-bottom:1px solid #ddd;}
+.itbl th,.itbl td{padding:5px 4px;font-size:10px;}
+}
+@media print{
+body{background:#fff;}
+.qctrl,.mob-tip{display:none!important;}
+#dview{display:none!important;}
+#qview{display:block!important;padding:0!important;}
+#invoice{border:none;max-width:100%;margin:0;}
+}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">🏠</span><span class="s2"><b> SNA INTERIOR &amp; EXTERIOR</b></span></p>
-<p class="p2"><span class="s2">Billing Manager  |  GSTIN: 29AFMPN1135N1ZZ</span></p>
-<p class="p3"><span class="s2"></span><br></p>
-<p class="p4"><span class="s3">🧾</span><span class="s4"><b> GST Invoice</b><b></b></span></p>
-<p class="p5"><span class="s3">📋</span><span class="s4"><b> Quotation</b><b></b></span></p>
-<p class="p6"><span class="s5">👤</span><span class="s4"><b> Buyer / Client Details</b><b></b></span></p>
-<p class="p7"><span class="s4"><b>CLIENT NAME *</b><b></b></span></p>
-<p class="p7"><span class="s4"><b>PHONE NUMBER</b><b></b></span></p>
-<p class="p7"><span class="s4"><b>CLIENT GSTIN</b><b></b></span></p>
-<p class="p7"><span class="s4"><b>BILLING / SITE ADDRESS</b><b></b></span></p>
-<p class="p6"><span class="s5">🔨</span><span class="s4"><b> Work Items</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>WORK CATEGORY</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>DESCRIPTION</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>QTY</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>UNIT</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>RATE (</b></span><span class="s7"><b>₹</b></span><span class="s6"><b>)</b><b></b></span></p>
-<p class="p8"><span class="s6"><b>AMOUNT (</b></span><span class="s7"><b>₹</b></span><span class="s6"><b>)</b><b></b></span></p>
-<p class="p9"><span class="s2"><b></b></span><br></p>
-<p class="p10"><span class="s2"></span><br></p>
-<p class="p11"><span class="s8"><b>＋</b></span><span class="s2"><b> Add Work Item</b><b></b></span></p>
-<p class="p12"><span class="s4">Total Work Amount</span></p>
-<p class="p12"><span class="s9">₹</span><span class="s4">0.00</span></p>
-<p class="p12"><span class="s4">CGST @ 9%</span></p>
-<p class="p12"><span class="s9">₹</span><span class="s4">0.00</span></p>
-<p class="p12"><span class="s4">SGST @ 9%</span></p>
-<p class="p12"><span class="s9">₹</span><span class="s4">0.00</span></p>
-<p class="p12"><span class="s4">Total GST</span></p>
-<p class="p12"><span class="s9">₹</span><span class="s4">0.00</span></p>
-<p class="p12"><span class="s4">Round Off</span></p>
-<p class="p12"><span class="s9">₹</span><span class="s4">0.00</span></p>
-<p class="p13"><span class="s4"><b>Grand Total</b><b></b></span></p>
-<p class="p13"><span class="s10"><b>₹</b></span><span class="s4"><b>0.00</b><b></b></span></p>
-<p class="p14"><span class="s11">📄</span><span class="s2"><b>  GENERATE GST INVOICE</b><b></b></span></p>
+<div id="dview" style="padding:16px 12px;max-width:980px;margin:0 auto;">
+<div class="hdr">
+<div><div class="ht">🏠 SNA INTERIOR & EXTERIOR</div><div class="hs">Billing Manager  |  GSTIN: 29AFMPN1135N1ZZ</div></div>
+<div class="hd" id="hdr-dt"></div>
+</div>
+
+<div class="tabs">
+<button class="tab active" id="tab-inv" onclick="setMode('invoice')">🧾 GST Invoice</button>
+<button class="tab" id="tab-quo" onclick="setMode('quotation')">📋 Quotation</button>
+</div>
+
+<div class="card">
+<div class="ctitle">👤 Buyer / Client Details</div>
+<div class="cg">
+<div><label class="lbl">Client Name *</label><input id="cl-n" class="fi" placeholder="Full name"></div>
+<div><label class="lbl">Phone Number</label><input id="cl-p" class="fi" placeholder="+91 XXXXX XXXXX" type="tel"></div>
+<div id="gstin-field"><label class="lbl">Client GSTIN</label><input id="cl-g" class="fi" placeholder="Optional"></div>
+<div class="full"><label class="lbl">Billing / Site Address</label><input id="cl-a" class="fi" placeholder="Full billing / site address"></div>
+</div>
+</div>
+
+<div class="card">
+<div class="ctitle">🔨 Work Items</div>
+<div class="tbl-hdr"><span>Work Category</span><span>Description</span><span>Qty</span><span>Unit</span><span>Rate (₹)</span><span>Amount (₹)</span><span></span></div>
+<div id="iw"></div>
+<button class="add-btn" onclick="addRow()">＋ Add Work Item</button>
+</div>
+
+<div class="card">
+<div class="sw">
+<div class="sr"><span id="sub-lbl">Total Work Amount</span><span id="ss">₹0.00</span></div>
+<div class="sr gst-row"><span>CGST @ 9%</span><span id="sc">₹0.00</span></div>
+<div class="sr gst-row"><span>SGST @ 9%</span><span id="sg">₹0.00</span></div>
+<div class="sr gst-row"><span>Total GST</span><span id="stg">₹0.00</span></div>
+<div class="sr"><span>Round Off</span><span id="sr">₹0.00</span></div>
+<div class="st"><span>Grand Total</span><span id="sgt">₹0.00</span></div>
+</div>
+</div>
+
+<button class="gen-btn" onclick="gen()"><span id="gen-lbl">📄  GENERATE GST INVOICE</span></button>
+</div>
+
+<div id="qview">
+<div class="mob-tip">📱 <strong>To save as PDF on mobile:</strong> Tap <strong>🖨️ Print / Save PDF</strong> → choose <em>Save as PDF</em>.</div>
+<div class="qctrl">
+<button class="btn-back" onclick="showDash()">← Back</button>
+<button class="btn-pdf" id="pdf-btn" onclick="dlPDF()" disabled>⏳ Loading...</button>
+<button class="btn-prn" onclick="window.print()">🖨️ Print / Save PDF</button>
+</div>
+<div id="invoice">
+<div class="inv-title" id="doc-title">GST INVOICE</div>
+<div class="inv-top">
+<div class="inv-seller">
+<div class="inv-sn">SNA INTERIOR & EXTERIOR</div>
+#991, Ground Floor, Manjunatha Nilaya,<br>
+12th Cross, 9th Main, BEML Layout 3rd Stage,<br>
+Rajarajeshwarinagar, Bangalore - 560098<br>
+<strong>Phone:</strong> 97311 56281<br>
+<strong>GSTIN/UIN:</strong> 29AFMPN1135N1ZZ<br>
+<strong>State Name:</strong> Karnataka, Code: 29
+</div>
+<div class="inv-meta">
+<table class="imt">
+<tr><td id="doc-no-lbl">Invoice No.</td><td id="qn"></td></tr>
+<tr><td>Dated</td><td id="qdt"></td></tr>
+<tr><td>Time</td><td id="qtm"></td></tr>
+<tr><td>Mode / Terms</td><td>Cash / Credit</td></tr>
+</table>
+</div>
+</div>
+<div class="inv-buyer">
+<div class="ibl">Buyer (Bill To)</div>
+<div class="ibn" id="qn2"></div>
+<div id="qa" style="color:#444;margin-top:2px;"></div>
+<div id="qp" style="color:#555;margin-top:2px;"></div>
+<div id="qgs" style="color:#555;margin-top:2px;"></div>
+<div style="color:#555;margin-top:2px;">State Name: Karnataka, Code: 29</div>
+</div>
+<table class="itbl">
+<thead><tr>
+<th style="width:4%;text-align:center;">SI</th>
+<th style="text-align:left;">Description of Works</th>
+<th style="width:9%;text-align:center;">Qty</th>
+<th style="width:7%;text-align:center;">Unit</th>
+<th style="width:13%;text-align:right;">Rate (₹)</th>
+<th style="width:5%;text-align:center;">Per</th>
+<th style="width:14%;text-align:right;">Amount (₹)</th>
+</tr></thead>
+<tbody id="qitems"></tbody>
+</table>
+<div class="tsec">
+<div class="twords">
+<div class="twt">Amount Chargeable (in words)</div>
+<div class="twv" id="qw"></div>
+<div style="color:#999;font-size:10px;margin-top:6px;">E & O.E</div>
+</div>
+<div id="tax-block">
+<div class="tline" style="background:#e8f5e9;font-weight:700;border-bottom:2px solid #c8e6c9;"><span>Total Work Amount</span><span id="qsub"></span></div>
+<div class="tline gst-line"><span>CGST @9%</span><span style="width:40px;text-align:center;color:#888;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qcg"></span></div>
+<div class="tline gst-line"><span>SGST @9%</span><span style="width:40px;text-align:center;color:#888;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qsg"></span></div>
+<div class="tline gst-line" style="background:#fff8e1;font-weight:700;border-bottom:2px solid #ffe082;"><span>Total GST Amount</span><span id="qtgst"></span></div>
+<div class="tline"><span>Round Off</span><span style="width:40px;"></span><span style="width:90px;text-align:right;font-weight:600;" id="qro"></span></div>
+<div class="tgrand"><span>Grand Total</span><span id="qgt"></span></div>
+</div>
+</div>
+<div class="ifoot">
+<div class="idecl">
+<div style="font-weight:700;color:#333;margin-bottom:6px;">Declaration</div>
+<div style="color:#666;line-height:1.7;" id="decl-txt">We declare that this invoice shows the actual price of the works described and that all particulars are true and correct.</div>
+<div style="margin-top:8px;color:#888;font-size:10px;">Subject to Bangalore Jurisdiction</div>
+<div style="color:#999;font-size:10px;margin-top:2px;" id="cg-note">This is a Computer Generated Invoice</div>
+</div>
+<div class="isign">
+<div style="color:#444;">For <strong style="color:#1b5e20;font-size:13px;">SNA INTERIOR & EXTERIOR</strong></div>
+<div class="sl">Authorised Signatory</div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" onload="lok()" onerror="lok()"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" onload="lok()" onerror="lok()"></script>
+<script>
+var WG=[
+{g:"Interior Works",v:["Interior Design","Modular Kitchen","Fall Ceiling","Profile Lightings","Wood Work","Flooring"]},
+{g:"Civil Works",v:["Brick Work","Plastering","Painting","Electrical Work","Plumbing Work","Tiles Work","Carpenter Work"]},
+{g:"Other",v:["Other"]}
+];
+var UN=["Sqft","Rft","Nos","Set","LS","Mtr","Bags","Month","Lot"];
+var rc=0,lc=0,MODE='invoice';
+
+function fm(v){return"₹"+Number(v).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});}
+function gqn(){var p=MODE==='invoice'?'INV':'QUO';return"SNA-"+p+"-"+new Date().getFullYear()+"-"+String(Math.floor(Math.random()*9000)+1000);}
+
+var _o=['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+var _t=['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+function _w(n){if(!n)return'';if(n<20)return _o[n]+' ';if(n<100)return _t[Math.floor(n/10)]+' '+(n%10?_o[n%10]+' ':'');if(n<1000)return _o[Math.floor(n/100)]+' Hundred '+_w(n%100);if(n<100000)return _w(Math.floor(n/1000))+'Thousand '+_w(n%1000);if(n<10000000)return _w(Math.floor(n/100000))+'Lakh '+_w(n%100000);return _w(Math.floor(n/10000000))+'Crore '+_w(n%10000000);}
+function n2w(n){n=Math.round(n*100)/100;var ip=Math.floor(n),dp=Math.round((n-ip)*100),r=(_w(ip)||'Zero ')+'Rupees';if(dp>0)r+=' and '+_w(dp)+' Paise';return 'Indian Rupees '+r.replace(/\s+/g,' ').trim()+' Only';}
+
+function setMode(m){
+  MODE=m;
+  var isInv=(m==='invoice');
+  document.getElementById('tab-inv').classList.toggle('active',isInv);
+  document.getElementById('tab-quo').classList.toggle('active',!isInv);
+  document.getElementById('gen-lbl').textContent=isInv?'📄  GENERATE GST INVOICE':'📄  GENERATE QUOTATION';
+  document.getElementById('gstin-field').style.display=isInv?'block':'none';
+  // Hide GST rows in dashboard summary
+  var gr=document.querySelectorAll('.gst-row');
+  gr.forEach(function(el){el.style.display=isInv?'flex':'none';});
+  document.getElementById('sub-lbl').textContent=isInv?'Total Work Amount':'Sub Total';
+  calc();
+}
+
+function cSel(s){var h='<select class="rs" onchange="calc()">';WG.forEach(function(g){h+='<optgroup label="── '+g.g+'">';g.v.forEach(function(t){h+='<option'+(t===s?' selected':'')+'>'+t+'</option>';});h+='</optgroup>';});return h+'</select>';}
+function uSel(s){var h='<select class="rs" onchange="calc()">';UN.forEach(function(u){h+='<option'+(u===s?' selected':'')+'>'+u+'</option>';});return h+'</select>';}
+
+function addRow(cat,desc,qty,unit,rate){
+cat=cat||'Interior Design';desc=desc||'';qty=qty!=null?qty:1;unit=unit||'Sqft';rate=rate||'';
+var id=++rc,d=document.createElement('div');
+d.className='tbl-row '+(rc%2===0?'even':'odd');d.id='row-'+id;
+d.innerHTML='<div class="fc"><span class="ml">Work Category</span>'+cSel(cat)+'</div><div class="fd"><span class="ml">Description</span><input class="ri" value="'+desc+'" placeholder="Description (optional)" oninput="calc()"></div><div class="fq"><span class="ml">Qty</span><input class="ri" type="number" value="'+qty+'" min="0" oninput="calc()" style="text-align:center;"></div><div class="fu"><span class="ml">Unit</span>'+uSel(unit)+'</div><div class="fr"><span class="ml">Rate (₹)</span><input class="ri" type="number" value="'+rate+'" min="0" placeholder="0.00" oninput="calc()"></div><div class="famount"><span class="ml">Amount</span><div class="amt-cell" id="a-'+id+'">₹0.00</div></div><button class="del-btn" onclick="delRow('+id+')" title="Remove">×</button>';
+document.getElementById('iw').appendChild(d);calc();
+}
+function delRow(id){var e=document.getElementById('row-'+id);if(e)e.remove();calc();}
+
+function calc(){
+var sub=0;
+document.querySelectorAll('[id^="row-"]').forEach(function(row){
+var id=row.id.replace('row-',''),n=row.querySelectorAll('input[type="number"]');
+if(n.length<2)return;
+var a=(parseFloat(n[0].value)||0)*(parseFloat(n[1].value)||0);
+sub+=a;var el=document.getElementById('a-'+id);if(el)el.textContent=fm(a);
+});
+var cg=0,sg=0,gr;
+if(MODE==='invoice'){cg=sub*.09;sg=sub*.09;gr=Math.round(sub+cg+sg);}
+else{gr=Math.round(sub);}
+var ro=gr-(sub+cg+sg);
+document.getElementById('ss').textContent=fm(sub);
+document.getElementById('sc').textContent=fm(cg);
+document.getElementById('sg').textContent=fm(sg);
+document.getElementById('stg').textContent=fm(cg+sg);
+document.getElementById('sr').textContent=fm(ro);
+document.getElementById('sgt').textContent=fm(gr);
+}
+
+function gen(){
+var nm=document.getElementById('cl-n').value.trim();
+if(!nm){alert('Please enter client name.');return;}
+var ok=false;
+document.querySelectorAll('[id^="row-"]').forEach(function(r){var n=r.querySelectorAll('input[type="number"]');if(n.length>=2&&parseFloat(n[1].value)>0)ok=true;});
+if(!ok){alert('Please enter rate for at least one work item.');return;}
+
+var isInv=(MODE==='invoice');
+document.getElementById('doc-title').textContent=isInv?'GST INVOICE':'QUOTATION';
+document.getElementById('doc-no-lbl').textContent=isInv?'Invoice No.':'Quotation No.';
+document.getElementById('decl-txt').textContent=isInv
+  ?'We declare that this invoice shows the actual price of the works described and that all particulars are true and correct.'
+  :'GST @18% will be applicable at the time of invoicing. Any additional work beyond the mentioned scope will be charged separately.';
+document.getElementById('cg-note').textContent=isInv?'This is a Computer Generated Invoice':'This is a Computer Generated Quotation';
+
+// toggle GST lines in printed bill
+var gl=document.querySelectorAll('.gst-line');
+gl.forEach(function(el){el.style.display=isInv?'flex':'none';});
+
+var now=new Date();
+document.getElementById('qn').textContent=gqn();
+document.getElementById('qdt').textContent=now.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'}).replace(/ /g,'-');
+document.getElementById('qtm').textContent=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
+document.getElementById('qn2').textContent=nm;
+var ad=document.getElementById('cl-a').value.trim(),ph=document.getElementById('cl-p').value.trim(),gs=document.getElementById('cl-g').value.trim();
+document.getElementById('qa').textContent=ad;
+document.getElementById('qp').textContent=ph?'Ph: '+ph:'';
+document.getElementById('qgs').textContent=(isInv&&gs)?'GSTIN: '+gs:'';
+
+var tb=document.getElementById('qitems');tb.innerHTML='';
+var sub=0,si=0;
+document.querySelectorAll('[id^="row-"]').forEach(function(row){
+var sels=row.querySelectorAll('select'),txts=row.querySelectorAll('input:not([type="number"])'),nums=row.querySelectorAll('input[type="number"]');
+if(!sels.length||nums.length<2)return;
+var cat=sels[0].value,desc=txts.length?txts[0].value:'',qty=parseFloat(nums[0].value)||0,unit=sels.length>1?sels[1].value:'',rate=parseFloat(nums[1].value)||0;
+if(!rate&&!desc)return;
+var a=qty*rate;sub+=a;si++;
+tb.innerHTML+='<tr style="background:'+(si%2===0?'#fff':'#f9fff7')+'"><td style="text-align:center;color:#888;">'+si+'</td><td><div class="ic">'+cat+'</div>'+(desc?'<div class="id2">'+desc+'</div>':'')+'</td><td style="text-align:center;">'+qty+'</td><td style="text-align:center;color:#777;">'+unit+'</td><td style="text-align:right;">'+fm(rate)+'</td><td style="text-align:center;color:#999;">'+unit+'</td><td style="text-align:right;font-weight:600;">'+fm(a)+'</td></tr>';
+});
+for(var i=0;i<2;i++)tb.innerHTML+='<tr><td colspan="7" style="padding:9px;border:1px solid #e0e0e0;"> </td></tr>';
+
+var cg=0,sg=0,gr;
+if(isInv){cg=sub*.09;sg=sub*.09;gr=Math.round(sub+cg+sg);}
+else{gr=Math.round(sub);}
+var ro=gr-(sub+cg+sg);
+
+document.getElementById('qw').textContent=n2w(gr);
+document.getElementById('qsub').textContent=fm(sub);
+document.getElementById('qcg').textContent=fm(cg);
+document.getElementById('qsg').textContent=fm(sg);
+document.getElementById('qtgst').textContent=fm(cg+sg);
+document.getElementById('qro').textContent=fm(ro);
+document.getElementById('qgt').textContent=fm(gr);
+
+document.getElementById('dview').style.display='none';
+document.getElementById('qview').style.display='block';
+window.scrollTo(0,0);
+}
+
+function showDash(){document.getElementById('qview').style.display='none';document.getElementById('dview').style.display='block';window.scrollTo(0,0);}
+
+function lok(){if(++lc>=2){var b=document.getElementById('pdf-btn');if(b){b.textContent='📥 Download PDF';b.disabled=false;}}}
+
+function dlPDF(){
+if(!window.html2canvas||!window.jspdf){window.print();return;}
+var btn=document.getElementById('pdf-btn');
+btn.textContent='⏳ Generating...';btn.disabled=true;
+html2canvas(document.getElementById('invoice'),{scale:1.8,useCORS:true,logging:false,backgroundColor:'#ffffff'}).then(function(cv){
+var jsPDF=window.jspdf.jsPDF,pdf=new jsPDF('p','mm','a4');
+var iW=210,pH=297,iH=(cv.height*iW)/cv.width,img=cv.toDataURL('image/jpeg',0.92);
+var lft=iH,pos=0;
+pdf.addImage(img,'JPEG',0,pos,iW,iH);lft-=pH;
+while(lft>0){pos-=pH;pdf.addPage();pdf.addImage(img,'JPEG',0,pos,iW,iH);lft-=pH;}
+pdf.save('SNA-'+document.getElementById('qn').textContent+'.pdf');
+btn.textContent='📥 Download PDF';btn.disabled=false;
+}).catch(function(){alert('PDF failed. Use Print button instead.');btn.textContent='📥 Download PDF';btn.disabled=false;});
+}
+
+(function(){
+var n=new Date();
+document.getElementById('hdr-dt').innerHTML=n.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})+'<br>'+n.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',hour12:true});
+addRow('Interior Design','',1,'Sqft','');
+addRow('Modular Kitchen','',1,'Set','');
+addRow('Fall Ceiling','',1,'Sqft','');
+addRow('Profile Lightings','',1,'Nos','');
+addRow('Wood Work','',1,'Sqft','');
+setMode('invoice');
+})();
+</script>
 </body>
 </html>
