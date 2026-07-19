@@ -62,37 +62,37 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#eef0f8;min-height:100vh
 .btn-prn{padding:11px 20px;background:#e65100;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;touch-action:manipulation;}
 .mob-tip{display:none;background:#fff3e0;border-left:4px solid #ff9800;border-radius:8px;padding:12px 14px;font-size:12px;color:#bf360c;max-width:820px;margin:0 auto 12px;line-height:1.7;}
 @media(max-width:680px){.mob-tip{display:block;}}
-#invoice{background:#fff;border:1.5px solid #bbb;max-width:820px;margin:0 auto;font-size:11px;font-family:Arial,sans-serif;}
-.inv-title{background:#1b5e20;color:#fff;text-align:center;padding:9px;font-size:14px;font-weight:800;letter-spacing:2px;}
-.inv-top{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #333;}
-.inv-seller{padding:12px 14px;border-right:1px solid #999;line-height:1.8;color:#333;}
-.inv-sn{font-weight:900;font-size:14px;color:#1b5e20;margin-bottom:4px;}
+#invoice{background:#fff;border:1.5px solid #000;max-width:820px;margin:0 auto;font-size:11px;font-family:Arial,sans-serif;color:#000;}
+.inv-title{background:#000;color:#fff;text-align:center;padding:9px;font-size:14px;font-weight:800;letter-spacing:2px;}
+.inv-top{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid #000;}
+.inv-seller{padding:12px 14px;border-right:1px solid #000;line-height:1.8;color:#000;}
+.inv-sn{font-weight:900;font-size:14px;color:#000;margin-bottom:4px;}
 .inv-meta{padding:10px 12px;}
 .imt{width:100%;border-collapse:collapse;}
-.imt td{padding:5px 8px;border:1px solid #ddd;font-size:11px;}
-.imt td:first-child{color:#666;background:#fafffe;width:48%;}
+.imt td{padding:5px 8px;border:1px solid #999;font-size:11px;color:#000;}
+.imt td:first-child{color:#333;background:#f5f5f5;width:48%;}
 .imt td:last-child{font-weight:700;}
-.inv-buyer{padding:10px 14px;background:#f9fff8;border-bottom:1.5px solid #333;}
-.ibl{font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
-.ibn{font-weight:900;font-size:13px;color:#1b5e20;}
+.inv-buyer{padding:10px 14px;background:#f5f5f5;border-bottom:1.5px solid #000;}
+.ibl{font-size:10px;font-weight:700;color:#333;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.ibn{font-weight:900;font-size:13px;color:#000;}
 .itbl{width:100%;border-collapse:collapse;}
-.itbl th{padding:8px 6px;background:#e8f5e9;font-weight:700;font-size:11px;border:1px solid #ccc;}
-.itbl td{padding:7px 8px;border:1px solid #e0e0e0;vertical-align:top;}
-.ic{font-weight:700;color:#1b5e20;}
-.id2{color:#666;font-size:10px;margin-top:2px;}
-.tsec{display:grid;grid-template-columns:1fr 265px;border-top:1.5px solid #333;}
-.twords{padding:10px 14px;border-right:1px solid #bbb;}
-.twt{font-weight:700;color:#333;margin-bottom:4px;font-size:12px;}
-.twv{color:#222;font-style:italic;}
-.tline{display:flex;justify-content:space-between;align-items:center;padding:5px 10px;border-bottom:1px solid #eee;}
-.tgrand{display:flex;justify-content:space-between;padding:8px 10px;background:#e8f5e9;font-weight:800;color:#1b5e20;font-size:14px;}
-.ifoot{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid #333;}
-.idecl{padding:14px;border-right:1px solid #bbb;}
+.itbl th{padding:8px 6px;background:#e0e0e0;font-weight:700;font-size:11px;border:1px solid #999;color:#000;}
+.itbl td{padding:7px 8px;border:1px solid #ccc;vertical-align:top;color:#000;}
+.ic{font-weight:700;color:#000;}
+.id2{color:#555;font-size:10px;margin-top:2px;}
+.tsec{display:grid;grid-template-columns:1fr 265px;border-top:1.5px solid #000;}
+.twords{padding:10px 14px;border-right:1px solid #999;}
+.twt{font-weight:700;color:#000;margin-bottom:4px;font-size:12px;}
+.twv{color:#000;font-style:italic;}
+.tline{display:flex;justify-content:space-between;align-items:center;padding:5px 10px;border-bottom:1px solid #ddd;color:#000;}
+.tgrand{display:flex;justify-content:space-between;padding:8px 10px;background:#000;font-weight:800;color:#fff;font-size:14px;}
+.ifoot{display:grid;grid-template-columns:1fr 1fr;border-top:1.5px solid #000;}
+.idecl{padding:14px;border-right:1px solid #999;}
 .isign{padding:14px;text-align:right;}
-.sl{border-top:1px solid #555;padding-top:5px;color:#444;font-weight:600;display:inline-block;padding-left:30px;padding-right:30px;margin-top:48px;}
+.sl{border-top:1px solid #000;padding-top:5px;color:#000;font-weight:600;display:inline-block;padding-left:30px;padding-right:30px;margin-top:48px;}
 @media(max-width:680px){
 .inv-top,.tsec,.ifoot{grid-template-columns:1fr!important;}
-.inv-seller,.twords,.idecl{border-right:none;border-bottom:1px solid #ddd;}
+.inv-seller,.twords,.idecl{border-right:none;border-bottom:1px solid #ccc;}
 .itbl th,.itbl td{padding:5px 4px;font-size:10px;}
 }
 @media print{
@@ -102,6 +102,26 @@ body{background:#fff;}
 #qview{display:block!important;padding:0!important;}
 #invoice{border:none;max-width:100%;margin:0;}
 }
+.settings-fab{position:fixed;right:18px;bottom:18px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;border:none;font-size:22px;cursor:pointer;box-shadow:0 4px 16px rgba(27,94,32,.4);z-index:500;display:flex;align-items:center;justify-content:center;touch-action:manipulation;}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(20,30,20,.55);z-index:1000;align-items:center;justify-content:center;padding:14px;}
+.modal-box{background:#fff;border-radius:14px;max-width:560px;width:100%;max-height:88vh;display:flex;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,.3);overflow:hidden;}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;font-size:15px;font-weight:800;}
+.modal-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:8px;font-size:18px;cursor:pointer;line-height:1;}
+.modal-body{padding:16px 18px;overflow-y:auto;flex:1;}
+.modal-ftr{display:flex;gap:10px;justify-content:space-between;padding:14px 18px;border-top:1px solid #eee;background:#fafffa;}
+.grp-block{border:1.5px solid #e0e8de;border-radius:10px;padding:12px 12px 14px;margin-bottom:14px;background:#fbfffb;}
+.grp-hdr{display:flex;gap:8px;align-items:center;margin-bottom:10px;}
+.grp-name{font-weight:700;color:#1b5e20;flex:1;padding:9px 11px;font-size:14px;}
+.chip-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px;}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#e8f5e9;color:#2e7d32;border-radius:20px;padding:6px 6px 6px 12px;font-size:12px;font-weight:600;}
+.chip i{font-style:normal;cursor:pointer;background:#c8e6c9;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#1b5e20;font-weight:900;}
+.add-cat-row,.add-grp-row{display:flex;gap:8px;}
+.add-cat-row .fi,.add-grp-row .fi{flex:1;padding:9px 11px;font-size:13px;}
+.add-btn.sm{width:auto;padding:9px 14px;font-size:12px;white-space:nowrap;}
+.del-btn.sm{width:30px;height:30px;font-size:16px;}
+.add-grp-row{margin-top:4px;}
+.save-btn{padding:11px 22px;background:linear-gradient(135deg,#1b5e20,#388e3c);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:800;cursor:pointer;}
+.reset-btn{padding:11px 18px;background:#fff;border:1px solid #e57373;color:#c62828;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -145,6 +165,19 @@ body{background:#fff;}
 </div>
 
 <button class="gen-btn" onclick="gen()"><span id="gen-lbl">📄  GENERATE GST INVOICE</span></button>
+</div>
+
+<button class="settings-fab" onclick="openSettings()" title="Manage Work Categories">⚙️</button>
+
+<div id="settingsModal" class="modal-overlay" onclick="if(event.target===this)closeSettings()">
+<div class="modal-box">
+<div class="modal-hdr"><span>⚙️ Manage Work Categories</span><button class="modal-close" onclick="closeSettings()">×</button></div>
+<div class="modal-body" id="settingsBody"></div>
+<div class="modal-ftr">
+<button class="reset-btn" onclick="resetDefaults()">↺ Reset to Default</button>
+<button class="save-btn" onclick="saveSettings()">💾 Save Changes</button>
+</div>
+</div>
 </div>
 
 <div id="qview">
@@ -202,10 +235,10 @@ Rajarajeshwarinagar, Bangalore - 560098<br>
 <div style="color:#999;font-size:10px;margin-top:6px;">E & O.E</div>
 </div>
 <div id="tax-block">
-<div class="tline" style="background:#e8f5e9;font-weight:700;border-bottom:2px solid #c8e6c9;"><span>Total Work Amount</span><span id="qsub"></span></div>
-<div class="tline gst-line"><span>CGST @9%</span><span style="width:40px;text-align:center;color:#888;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qcg"></span></div>
-<div class="tline gst-line"><span>SGST @9%</span><span style="width:40px;text-align:center;color:#888;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qsg"></span></div>
-<div class="tline gst-line" style="background:#fff8e1;font-weight:700;border-bottom:2px solid #ffe082;"><span>Total GST Amount</span><span id="qtgst"></span></div>
+<div class="tline" style="background:#e0e0e0;font-weight:700;border-bottom:2px solid #999;"><span>Total Work Amount</span><span id="qsub"></span></div>
+<div class="tline gst-line"><span>CGST @9%</span><span style="width:40px;text-align:center;color:#555;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qcg"></span></div>
+<div class="tline gst-line"><span>SGST @9%</span><span style="width:40px;text-align:center;color:#555;font-size:10px;">9%</span><span style="width:90px;text-align:right;font-weight:600;" id="qsg"></span></div>
+<div class="tline gst-line" style="background:#e0e0e0;font-weight:700;border-bottom:2px solid #999;"><span>Total GST Amount</span><span id="qtgst"></span></div>
 <div class="tline"><span>Round Off</span><span style="width:40px;"></span><span style="width:90px;text-align:right;font-weight:600;" id="qro"></span></div>
 <div class="tgrand"><span>Grand Total</span><span id="qgt"></span></div>
 </div>
@@ -218,7 +251,7 @@ Rajarajeshwarinagar, Bangalore - 560098<br>
 <div style="color:#999;font-size:10px;margin-top:2px;" id="cg-note">This is a Computer Generated Invoice</div>
 </div>
 <div class="isign">
-<div style="color:#444;">For <strong style="color:#1b5e20;font-size:13px;">SNA INTERIOR & EXTERIOR</strong></div>
+<div style="color:#000;">For <strong style="color:#000;font-size:13px;">SNA INTERIOR & EXTERIOR</strong></div>
 <div class="sl">Authorised Signatory</div>
 </div>
 </div>
@@ -228,11 +261,22 @@ Rajarajeshwarinagar, Bangalore - 560098<br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" onload="lok()" onerror="lok()"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" onload="lok()" onerror="lok()"></script>
 <script>
-var WG=[
+var WG_KEY='sna_work_categories_v1';
+var DEFAULT_WG=[
 {g:"Interior Works",v:["Interior Design","Modular Kitchen","Fall Ceiling","Profile Lightings","Wood Work","Flooring"]},
 {g:"Civil Works",v:["Brick Work","Plastering","Painting","Electrical Work","Plumbing Work","Tiles Work","Carpenter Work"]},
 {g:"Other",v:["Other"]}
 ];
+function loadWG(){
+  try{
+    var s=localStorage.getItem(WG_KEY);
+    if(s){var p=JSON.parse(s);if(Array.isArray(p)&&p.length)return p;}
+  }catch(e){}
+  return JSON.parse(JSON.stringify(DEFAULT_WG));
+}
+function saveWG(){try{localStorage.setItem(WG_KEY,JSON.stringify(WG));}catch(e){}}
+var WG=loadWG();
+var editWG=[];
 var UN=["Sqft","Rft","Nos","Set","LS","Mtr","Bags","Month","Lot"];
 var rc=0,lc=0,MODE='invoice';
 
@@ -261,14 +305,87 @@ function setMode(m){
 function cSel(s){var h='<select class="rs" onchange="calc()">';WG.forEach(function(g){h+='<optgroup label="── '+g.g+'">';g.v.forEach(function(t){h+='<option'+(t===s?' selected':'')+'>'+t+'</option>';});h+='</optgroup>';});return h+'</select>';}
 function uSel(s){var h='<select class="rs" onchange="calc()">';UN.forEach(function(u){h+='<option'+(u===s?' selected':'')+'>'+u+'</option>';});return h+'</select>';}
 
+function firstCat(){for(var i=0;i<WG.length;i++){if(WG[i].v.length)return WG[i].v[0];}return'';}
 function addRow(cat,desc,qty,unit,rate){
-cat=cat||'Interior Design';desc=desc||'';qty=qty!=null?qty:1;unit=unit||'Sqft';rate=rate||'';
+cat=cat||firstCat();desc=desc||'';qty=qty!=null?qty:1;unit=unit||'Sqft';rate=rate||'';
 var id=++rc,d=document.createElement('div');
 d.className='tbl-row '+(rc%2===0?'even':'odd');d.id='row-'+id;
 d.innerHTML='<div class="fc"><span class="ml">Work Category</span>'+cSel(cat)+'</div><div class="fd"><span class="ml">Description</span><input class="ri" value="'+desc+'" placeholder="Description (optional)" oninput="calc()"></div><div class="fq"><span class="ml">Qty</span><input class="ri" type="number" value="'+qty+'" min="0" oninput="calc()" style="text-align:center;"></div><div class="fu"><span class="ml">Unit</span>'+uSel(unit)+'</div><div class="fr"><span class="ml">Rate (₹)</span><input class="ri" type="number" value="'+rate+'" min="0" placeholder="0.00" oninput="calc()"></div><div class="famount"><span class="ml">Amount</span><div class="amt-cell" id="a-'+id+'">₹0.00</div></div><button class="del-btn" onclick="delRow('+id+')" title="Remove">×</button>';
 document.getElementById('iw').appendChild(d);calc();
 }
 function delRow(id){var e=document.getElementById('row-'+id);if(e)e.remove();calc();}
+
+/* ---- Work Category Settings ---- */
+function openSettings(){
+  editWG=JSON.parse(JSON.stringify(WG));
+  renderSettings();
+  document.getElementById('settingsModal').style.display='flex';
+}
+function closeSettings(){document.getElementById('settingsModal').style.display='none';}
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+function renderSettings(){
+  var body=document.getElementById('settingsBody'),h='';
+  editWG.forEach(function(g,gi){
+    h+='<div class="grp-block">';
+    h+='<div class="grp-hdr"><input class="fi grp-name" value="'+esc(g.g)+'" oninput="editWG['+gi+'].g=this.value"><button class="del-btn sm" onclick="delGroup('+gi+')" title="Delete group">×</button></div>';
+    h+='<div class="chip-wrap">';
+    g.v.forEach(function(v,vi){
+      h+='<span class="chip">'+esc(v)+'<i onclick="delCat('+gi+','+vi+')">×</i></span>';
+    });
+    if(!g.v.length)h+='<span style="font-size:11px;color:#999;">No categories yet — add one below.</span>';
+    h+='</div>';
+    h+='<div class="add-cat-row"><input class="fi" id="newcat-'+gi+'" placeholder="New category name (e.g. Waterproofing)" onkeydown="if(event.key===\'Enter\'){event.preventDefault();addCat('+gi+');}"><button class="add-btn sm" onclick="addCat('+gi+')">＋ Add</button></div>';
+    h+='</div>';
+  });
+  h+='<div class="add-grp-row"><input class="fi" id="newgrp" placeholder="New group name (e.g. Painting Works)" onkeydown="if(event.key===\'Enter\'){event.preventDefault();addGroup();}"><button class="add-btn sm" onclick="addGroup()">＋ Add New Group</button></div>';
+  body.innerHTML=h;
+}
+
+function addCat(gi){
+  var inp=document.getElementById('newcat-'+gi),val=inp.value.trim();
+  if(!val)return;
+  editWG[gi].v.push(val);
+  renderSettings();
+  var f=document.getElementById('newcat-'+gi);if(f)f.focus();
+}
+function delCat(gi,vi){editWG[gi].v.splice(vi,1);renderSettings();}
+function addGroup(){
+  var inp=document.getElementById('newgrp'),val=inp.value.trim();
+  if(!val)return;
+  editWG.push({g:val,v:[]});
+  renderSettings();
+}
+function delGroup(gi){
+  if(!confirm('Delete this entire group and all its categories?'))return;
+  editWG.splice(gi,1);
+  renderSettings();
+}
+
+function saveSettings(){
+  var total=0;editWG.forEach(function(g){total+=g.v.length;});
+  if(total===0){alert('Please keep at least one work category before saving.');return;}
+  WG=JSON.parse(JSON.stringify(editWG));
+  saveWG();
+  refreshCategorySelects();
+  closeSettings();
+}
+
+function resetDefaults(){
+  if(!confirm('Reset all work categories back to the original defaults? This cannot be undone.'))return;
+  editWG=JSON.parse(JSON.stringify(DEFAULT_WG));
+  renderSettings();
+}
+
+function refreshCategorySelects(){
+  document.querySelectorAll('[id^="row-"]').forEach(function(row){
+    var wrap=row.querySelector('.fc');
+    if(!wrap)return;
+    var sel=wrap.querySelector('select'),cur=sel?sel.value:'';
+    wrap.innerHTML='<span class="ml">Work Category</span>'+cSel(cur);
+  });
+}
 
 function calc(){
 var sub=0;
@@ -327,7 +444,7 @@ if(!sels.length||nums.length<2)return;
 var cat=sels[0].value,desc=txts.length?txts[0].value:'',qty=parseFloat(nums[0].value)||0,unit=sels.length>1?sels[1].value:'',rate=parseFloat(nums[1].value)||0;
 if(!rate&&!desc)return;
 var a=qty*rate;sub+=a;si++;
-tb.innerHTML+='<tr style="background:'+(si%2===0?'#fff':'#f9fff7')+'"><td style="text-align:center;color:#888;">'+si+'</td><td><div class="ic">'+cat+'</div>'+(desc?'<div class="id2">'+desc+'</div>':'')+'</td><td style="text-align:center;">'+qty+'</td><td style="text-align:center;color:#777;">'+unit+'</td><td style="text-align:right;">'+fm(rate)+'</td><td style="text-align:center;color:#999;">'+unit+'</td><td style="text-align:right;font-weight:600;">'+fm(a)+'</td></tr>';
+tb.innerHTML+='<tr style="background:'+(si%2===0?'#fff':'#f5f5f5')+'"><td style="text-align:center;color:#888;">'+si+'</td><td><div class="ic">'+cat+'</div>'+(desc?'<div class="id2">'+desc+'</div>':'')+'</td><td style="text-align:center;">'+qty+'</td><td style="text-align:center;color:#777;">'+unit+'</td><td style="text-align:right;">'+fm(rate)+'</td><td style="text-align:center;color:#999;">'+unit+'</td><td style="text-align:right;font-weight:600;">'+fm(a)+'</td></tr>';
 });
 for(var i=0;i<2;i++)tb.innerHTML+='<tr><td colspan="7" style="padding:9px;border:1px solid #e0e0e0;"> </td></tr>';
 
